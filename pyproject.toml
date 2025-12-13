@@ -1,7 +1,7 @@
 [project]
-name = "project1_toc"
+name = "project2_toc"
 version = "0.1.0"
-description = "Project 1 for Theory of Computing"
+description = "Project 2 for Theory of Computing"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

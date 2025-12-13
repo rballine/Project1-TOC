@@ -1,0 +1,146 @@
+uv run main.py ./input/aplus.csv "aaa"
+Machine name: a plus
+Input string: aaa
+Depth: 4
+String accepted in 4 transitions
+Here is the tree level configuration:
+Level 0: [['', 'q1', 'aaa']]
+Level 1: [['a', 'q1', 'aa'], ['a', 'q2', 'aa']]
+Level 2: [['a', 'qreject', 'aa'], ['aa', 'q1', 'a'], ['aa', 'q2', 'a']]
+Level 3: [['aa', 'qreject', 'a'], ['aaa', 'q1', '_'], ['aaa', 'q2', '_']]
+Level 4: [['aaa', 'qreject', '_'], ['aa', 'q3', 'a_']]
+Here is the accepted configuration:
+Left: "", State: "q1", Head: "a", Right: "aa"
+Left: "a", State: "q1", Head: "a", Right: "a"
+Left: "aa", State: "q1", Head: "a", Right: ""
+Left: "aaa", State: "q2", Head: "_", Right: ""
+Left: "aa", State: "q3", Head: "a", Right: "_"
+
+uv run main.py ./input/composite.csv "111111"
+Machine name: Composite_tester
+Input string: 111111
+Depth: 27
+String accepted in 27 transitions
+Here is the tree level configuration:
+Level 0: [['', 'q1', '111111']]
+Level 1: [['$', 'q2', '11111']]
+Level 2: [['$x', 'q3', '1111']]
+Level 3: [['$xx', 'q3', '111'], ['$', 'q4', 'x1111']]
+Level 4: [['$xxx', 'q3', '11'], ['$x', 'q4', 'x111'], ['', 'q4', '$x1111']]
+Level 5: [['$xxxx', 'q3', '1'], ['$xx', 'q4', 'x11'], ['$', 'q4', 'xx111'], ['_', 'q5s', 'x1111']]
+Level 6: [['$xxxxx', 'q3', '_'], ['$xxx', 'q4', 'x1'], ['$x', 'q4', 'xx11'], ['', 'q4', '$xx111'], ['_x', 'q5s', '1111']]
+Level 7: [['$xxxxx', 'qrej', '_'], ['$xx', 'q4', 'xx1'], ['$', 'q4', 'xxx11'], ['_', 'q5s', 'xx111'], ['_', 'q6', 'x$111']]
+Level 8: [['$x', 'q4', 'xxx1'], ['', 'q4', '$xxx11'], ['_x', 'q5s', 'x111'], ['', 'q6', '_x$111']]
+Level 9: [['$', 'q4', 'xxxx1'], ['_', 'q5s', 'xxx11'], ['_xx', 'q5s', '111'], ['_', 'q7', 'x$111']]
+Level 10: [['', 'q4', '$xxxx1'], ['_x', 'q5s', 'xx11'], ['_x', 'q6', 'x$11'], ['__', 'q5x', '$111']]
+Level 11: [['_', 'q5s', 'xxxx1'], ['_xx', 'q5s', 'x11'], ['_', 'q6', 'xx$11'], ['__$', 'q5x', '111']]
+Level 12: [['_x', 'q5s', 'xxx1'], ['_xxx', 'q5s', '11'], ['', 'q6', '_xx$11'], ['__', 'q6', '$x11']]
+Level 13: [['_xx', 'q5s', 'xx1'], ['_xx', 'q6', 'x$1'], ['_', 'q7', 'xx$11'], ['_', 'q6', '_$x11']]
+Level 14: [['_xxx', 'q5s', 'x1'], ['_x', 'q6', 'xx$1'], ['__', 'q5x', 'x$11'], ['__', 'q7', '$x11']]
+Level 15: [['_xxxx', 'q5s', '1'], ['_', 'q6', 'xxx$1'], ['___', 'q5x', '$11'], ['___', 'q5s', 'x11']]
+Level 16: [['_xxx', 'q6', 'x$'], ['', 'q6', '_xxx$1'], ['___$', 'q5x', '11'], ['___x', 'q5s', '11']]
+Level 17: [['_xx', 'q6', 'xx$'], ['_', 'q7', 'xxx$1'], ['___', 'q6', '$x1'], ['___', 'q6', 'x$1']]
+Level 18: [['_x', 'q6', 'xxx$'], ['__', 'q5x', 'xx$1'], ['__', 'q6', '_$x1'], ['__', 'q6', '_x$1']]
+Level 19: [['_', 'q6', 'xxxx$'], ['___', 'q5x', 'x$1'], ['___', 'q7', '$x1'], ['___', 'q7', 'x$1']]
+Level 20: [['', 'q6', '_xxxx$'], ['____', 'q5x', '$1'], ['____', 'q5s', 'x1']]
+Level 21: [['_', 'q7', 'xxxx$'], ['____$', 'q5x', '1'], ['____x', 'q5s', '1']]
+Level 22: [['__', 'q5x', 'xxx$'], ['____', 'q6', '$x'], ['____', 'q6', 'x$']]
+Level 23: [['___', 'q5x', 'xx$'], ['___', 'q6', '_$x'], ['___', 'q6', '_x$']]
+Level 24: [['____', 'q5x', 'x$'], ['____', 'q7', '$x'], ['____', 'q7', 'x$']]
+Level 25: [['_____', 'q5x', '$'], ['_____', 'q5s', 'x']]
+Level 26: [['_____$', 'q5x', '_'], ['_____x', 'q5s', '_']]
+Level 27: [['_____', 'qrej', '$_'], ['_____', 'qacc', 'x_']]
+Here is the accepted configuration:
+Left: "", State: "q1", Head: "1", Right: "11111"
+Left: "$", State: "q2", Head: "1", Right: "1111"
+Left: "$x", State: "q3", Head: "1", Right: "111"
+Left: "$xx", State: "q3", Head: "1", Right: "11"
+Left: "$xxx", State: "q3", Head: "1", Right: "1"
+Left: "$xx", State: "q4", Head: "x", Right: "11"
+Left: "$x", State: "q4", Head: "x", Right: "x11"
+Left: "$", State: "q4", Head: "x", Right: "xx11"
+Left: "", State: "q4", Head: "$", Right: "xxx11"
+Left: "_", State: "q5s", Head: "x", Right: "xx11"
+Left: "_x", State: "q5s", Head: "x", Right: "x11"
+Left: "_xx", State: "q5s", Head: "x", Right: "11"
+Left: "_xxx", State: "q5s", Head: "1", Right: "1"
+Left: "_xx", State: "q6", Head: "x", Right: "$1"
+Left: "_x", State: "q6", Head: "x", Right: "x$1"
+Left: "_", State: "q6", Head: "x", Right: "xx$1"
+Left: "", State: "q6", Head: "_", Right: "xxx$1"
+Left: "_", State: "q7", Head: "x", Right: "xx$1"
+Left: "__", State: "q5x", Head: "x", Right: "x$1"
+Left: "___", State: "q5x", Head: "x", Right: "$1"
+Left: "____", State: "q5x", Head: "$", Right: "1"
+Left: "____$", State: "q5x", Head: "1", Right: ""
+Left: "____", State: "q6", Head: "$", Right: "x"
+Left: "___", State: "q6", Head: "_", Right: "$x"
+Left: "____", State: "q7", Head: "$", Right: "x"
+Left: "_____", State: "q5s", Head: "x", Right: ""
+Left: "_____x", State: "q5s", Head: "_", Right: ""
+Left: "_____", State: "qacc", Head: "x", Right: "_"
+
+uv run main.py ./input/composite.csv "1"
+Machine name: Composite_tester
+Input string: 1
+Depth: 2
+String rejected in 2 transitions
+Level 0: [['', 'q1', '1']]
+Level 1: [['$', 'q2', '_']]
+Level 2: [['$', 'qrej', '_']]
+
+uv run main.py ./input/reject_all.csv "1100"
+Machine name: reject_all
+Input string: 1100
+Depth: 1
+String rejected in 1 transitions
+Level 0: [['', 'q1', '1100']]
+Level 1: [['', 'qrej', '1100']]
+
+uv run main.py ./input/ntm_n1n.csv "010"
+Machine name: ZeroNOneN
+Input string: 010
+Depth: 4
+String rejected in 4 transitions
+Level 0: [['', 'q0', '010']]
+Level 1: [['0', 'q0', '10'], ['0', 'q1', '10']]
+Level 2: [['0', 'qreject', '10'], ['', 'q2', '0X0']]
+Level 3: [['', 'q2', '_0X0']]
+Level 4: [['', 'qreject', '_0X0']]
+
+uv run main.py ./input/equal_01s.csv "0101"
+Machine name: {w | w has the same number of 0's and 1's} Nondeterministic
+Input string: 0101
+Depth: 13
+String accepted in 13 transitions
+Here is the tree level configuration:
+Level 0: [['', 'q0', '0101']]
+Level 1: [['_', 'q1', '101']]
+Level 2: [['', 'q3', '_x01']]
+Level 3: [['_', 'q4', 'x01'], ['_', 'q5', 'x01']]
+Level 4: [['_x', 'q4', '01'], ['_x', 'q5', '01']]
+Level 5: [['_x', 'qrej', '01'], ['_xx', 'q1', '1']]
+Level 6: [['_x', 'q3', 'xx']]
+Level 7: [['_', 'q3', 'xxx']]
+Level 8: [['', 'q3', '_xxx']]
+Level 9: [['_', 'q4', 'xxx'], ['_', 'q5', 'xxx']]
+Level 10: [['_x', 'q4', 'xx'], ['_x', 'q5', 'xx']]
+Level 11: [['_xx', 'q4', 'x'], ['_xx', 'q5', 'x']]
+Level 12: [['_xxx', 'q4', '_'], ['_xxx', 'q5', '_']]
+Level 13: [['_xx', 'q3', 'x_'], ['_xxx_', 'qacc', '_']]
+Here is the accepted configuration:
+Left: "", State: "q0", Head: "0", Right: "101"
+Left: "_", State: "q1", Head: "1", Right: "01"
+Left: "", State: "q3", Head: "_", Right: "x01"
+Left: "_", State: "q4", Head: "x", Right: "01"
+Left: "_x", State: "q4", Head: "0", Right: "1"
+Left: "_xx", State: "q1", Head: "1", Right: ""
+Left: "_x", State: "q3", Head: "x", Right: "x"
+Left: "_", State: "q3", Head: "x", Right: "xx"
+Left: "", State: "q3", Head: "_", Right: "xxx"
+Left: "_", State: "q5", Head: "x", Right: "xx"
+Left: "_x", State: "q5", Head: "x", Right: "x"
+Left: "_xx", State: "q5", Head: "x", Right: ""
+Left: "_xxx", State: "q5", Head: "_", Right: ""
+Left: "_xxx_", State: "qacc", Head: "_", Right: ""
+
